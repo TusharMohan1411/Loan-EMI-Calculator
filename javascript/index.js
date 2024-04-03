@@ -30,8 +30,13 @@ function emiCalc() {
         return false;
     };
 
-    if (!downPaymentf || isNaN(downPaymentf) || downPaymentf === "") {
+    if (isNaN(downPaymentf)) {
         alert("Down Payment is Empty or Wrong!");
+        return false;
+    };
+
+    if (downPaymentf < 0) {
+        alert("Down Payment cannot be Negative..!");
         return false;
     };
 
@@ -85,7 +90,7 @@ function emiCalc() {
     var monthsTenure = totalEMIsf % 12;
     var yearTenure = Math.floor(totalEMIsf / 12);
 
-    var EMItenure = yearTenure + " Years & " + monthsTenure + " Months";
+    var EMItenure = yearTenure + " Years <br> " + monthsTenure + " Months";
     tenure.innerHTML = EMItenure;
 
     // Last Month EMI formula 
